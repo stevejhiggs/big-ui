@@ -4,10 +4,11 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "lint": "turbo lint --continue --",
+    "lint:fix": "turbo lint --continue -- --write"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
     "prettier": "^3.3.2",
     "turbo": "^2.0.6",
     "typescript": "^5.5.3"

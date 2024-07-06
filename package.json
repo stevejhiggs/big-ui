@@ -6,7 +6,8 @@
     "clean": "turbo clean",
     "dev": "turbo dev",
     "lint": "turbo lint --continue --",
-    "lint:fix": "turbo lint --continue -- --write"
+    "lint:fix": "turbo lint --continue -- --write",
+    "typecheck": "turbo typecheck"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.8.3",

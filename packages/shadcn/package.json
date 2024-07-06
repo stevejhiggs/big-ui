@@ -13,19 +13,21 @@
     "format": "biome format . ",
     "typecheck": "tsc --noEmit"
   },
-  "devDependencies": {
-    "@repo/tailwind": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
-    "typescript": "^5.5.3"
-  },
-  "peerDependencies": {
-    "react": "*",
-    "react-dom": "*"
-  },
   "dependencies": {
     "@radix-ui/react-slider": "^1.2.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-switch": "^1.1.0",
     "class-variance-authority": "^0.7.0"
+  },
+  "devDependencies": {
+    "@repo/tailwind": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "typescript": "^5.5.3"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
   }
 }

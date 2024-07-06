@@ -3,16 +3,18 @@
   "organizeImports": {
     "enabled": true,
   },
-  "linter": {
-    "enabled": true,
+  "files": {
     "ignore": [
       "node_modules/*",
       "*.config.*",
       "*.json",
       "tsconfig.json",
       ".turbo",
-      "./.next"
+      ".next/*"
     ],
+  },
+  "linter": {
+    "enabled": true,
     "rules": {
       "recommended": true,
       "complexity": {
@@ -110,13 +112,5 @@
     "indentWidth": 2,
     "lineEnding": "lf",
     "lineWidth": 250,
-    "ignore": [
-      "node_modules/*",
-      "*.config.*",
-      "*.json",
-      "tsconfig.json",
-      ".turbo",
-      "./.next"
-    ],
   },
 }

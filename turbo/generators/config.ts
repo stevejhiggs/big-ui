@@ -46,13 +46,13 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
 			},
 			{
 				type: "add",
-				path: "packages/{{ name }}/index.ts",
-				template: "export * from './src';",
+				path: "packages/{{ name }}/src/index.ts",
+				template: "export const name = '{{ name }}';",
 			},
 			{
 				type: "add",
-				path: "packages/{{ name }}/src/index.ts",
-				template: "export const name = '{{ name }}';",
+				path: "packages/{{ name }}/biome.jsonc",
+				template: "{ \"extends\": [\"../../biome.jsonc\"] }",
 			},
 			{
 				type: "modify",

@@ -2,7 +2,7 @@
 
 export { Alert } from './components/ui/alert.tsx';
 export { Badge } from './components/ui/badge.tsx';
-export { Button } from './components/ui/button.tsx';
+export { Button, buttonVariants } from './components/ui/button.tsx';
 
 export {
   Card,

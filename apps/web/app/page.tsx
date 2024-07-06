@@ -1,5 +1,5 @@
 import { Badge, Switch } from '@repo/shadcn';
-import { Button } from '@repo/ui/button';
+import { Button } from '@repo/shadcn';
 import Image from 'next/image';
 import styles from './page.module.css';
 
@@ -16,20 +16,17 @@ export default function Home() {
         </ol>
 
         <div className={styles.ctas}>
-          <a className={styles.primary} href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app" target="_blank" rel="noopener noreferrer">
-            <Image className={styles.logo} src="/vercel.svg" alt="Vercel logomark" width={20} height={20} />
-            Deploy now
-          </a>
-          <a href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app" target="_blank" rel="noopener noreferrer" className={styles.secondary}>
-            Read our docs
-          </a>
+          <Button asChild>
+            <a href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app" target="_blank" rel="noopener noreferrer">
+              Deploy now
+            </a>
+          </Button>
+          <Button asChild variant={'secondary'}>
+            <a href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app" target="_blank" rel="noopener noreferrer" className={styles.secondary}>
+              Read our docs
+            </a>
+          </Button>
         </div>
-        <Button
-          appName="web"
-          className="mx-auto rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-        >
-          Open alert
-        </Button>
       </main>
       <footer className={styles.footer}>
         <a href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app" target="_blank" rel="noopener noreferrer">

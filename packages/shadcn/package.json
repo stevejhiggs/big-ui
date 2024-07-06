@@ -9,8 +9,7 @@
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf .turbo node_modules",
-    "lint": "biome lint .",
-    "format": "biome format . ",
+    "lint": "biome check .",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -20,16 +19,17 @@
     "@radix-ui/react-slider": "^1.2.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-switch": "^1.1.0",
-    "class-variance-authority": "^0.7.0"
+    "class-variance-authority": "^0.7.0",
+    "lucide-react": "^0.400.0"
   },
   "devDependencies": {
-    "@repo/tailwind": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "typescript": "^5.5.3"
   },
   "peerDependencies": {
+    "@repo/tailwind": "workspace:*",
     "react": "*",
     "react-dom": "*"
   }

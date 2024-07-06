@@ -1,4 +1,4 @@
-import path from 'path';
+import path from 'node:path';
 import tailwindBase from '@repo/tailwind';
 import type { Config } from 'tailwindcss';
 

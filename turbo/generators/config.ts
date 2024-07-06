@@ -9,7 +9,7 @@ interface PackageJson {
 }
 
 export default function generator(plop: PlopTypes.NodePlopAPI): void {
-	plop.setGenerator("init", {
+	plop.setGenerator("addPackage", {
 		description: "Generate a new package for the Monorepo",
 		prompts: [
 			{
@@ -84,7 +84,7 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
 					// });
 					execSync("pnpm i", { stdio: "inherit" });
 					execSync(
-						`pnpm @biomejs/biome format --write packages/${answers.name}/**`,
+						`pnpm biome format --write packages/${answers.name}/**`,
 					);
 					return "Package formatted";
 				}

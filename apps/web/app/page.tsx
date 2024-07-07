@@ -1,5 +1,4 @@
-import { Badge, Switch } from '@repo/shadcn';
-import { Button } from '@repo/shadcn';
+import { Badge, Button, Switch } from '@repo/shadcn';
 import Image from 'next/image';
 import styles from './page.module.css';
 

@@ -14,19 +14,20 @@
     "@repo/shadcn": "workspace:*",
     "@repo/tailwind": "workspace:*",
     "@repo/ui": "workspace:*",
+    "lucide-react": "catalog:",
     "next": "15.0.0-rc.0",
     "react": "19.0.0-rc-f994737d14-20240522",
     "react-dom": "19.0.0-rc-f994737d14-20240522",
-    "tailwindcss": "^3.4.4",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss": "catalog:",
+    "tailwindcss-animate": "catalog:"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.39",
-    "typescript": "^5.5.3"
+    "typescript": "catalog:"
   }
 }

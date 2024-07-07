@@ -2,3 +2,14 @@ packages:
   - apps/*
   - packages/*
   - tooling/*
+
+catalog:
+  "@types/react": ^18.3.3
+  "@types/react-dom": ^18.3.0
+  "@types/node": ^20
+  react: ^18.3.1
+  react-dom: ^18.3.1
+  typescript: ^5.5.3
+  lucide-react: ^0.400.0
+  tailwindcss: ^3
+  tailwindcss-animate: ^1

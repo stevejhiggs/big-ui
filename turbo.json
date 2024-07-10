@@ -23,5 +23,6 @@
     "typecheck": {
       "dependsOn": ["^typecheck"]
     }
-  }
+  },
+  "ui": "tui"
 }

@@ -14,7 +14,7 @@ export {
   AlertDialogTrigger,
 } from './components/ui/alert-dialog.tsx';
 
-export { Avatar, AvatarFallback, AvatarImage } from './components/ui/avatar';
+export { Avatar, AvatarFallback, AvatarImage } from './components/ui/avatar.tsx';
 export { Badge } from './components/ui/badge.tsx';
 
 export {

@@ -1,43 +1,35 @@
-# Turborepo starter
+# Big-ui
 
-This is an official starter Turborepo.
+This is an attempt to explore how to handle, and keep easily deployable, massive frontend architectures.
 
-## Using this example
+## Problems we are trying to solve
 
-Run the following command:
+* A single massive frontend is difficult to test and deploy in a timely manner
+* In a large interlinked codebase, determining "blast radius" of a change is hard
 
-```sh
-npx create-turbo@latest
-```
+## Multi-frontend
 
-## What's inside?
+The idea here is to have multiple seperate frontends that share code in a set of common libraries. Each frontend is responsible for an isolated chunk of the site and is deployable seperately.
 
-This Turborepo includes the following packages/apps:
+## Isolated buildless packages
 
-### Apps and Packages
+I use a pnpm workspace to allow code sharing between packages and apps without a build step. It is assumed that each consuming app is responsible for bundling the packages into a usable format.
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+Through the use of the "bundler" node resolution strategy for typescript, combined with the use of the "exports" field in package.json we effectively acheive the notion of a "public" interface for our packages. Only code that is explicitly exported can easily be used by others, vscode will not attempt to import non-exported code and simple attempts to do so will result in a build-time error (It is still possible to walk the filesystem and import that way but it needs to be pretty deliberate).
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+## Shared dependancies
 
-### Utilities
+For dependancies used in many places I am using a pnpm catalog to make sure I always use the same version throughout the repo.
 
-This Turborepo has some additional tools already setup for you:
+## Turborepo
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+This repo is built using turborepo and as such there are a few commands available in the root:
 
 ### Build
 
 To build all apps and packages, run the following command:
 
 ```
-cd my-turborepo
 pnpm build
 ```
 
@@ -46,36 +38,34 @@ pnpm build
 To develop all apps and packages, run the following command:
 
 ```
-cd my-turborepo
 pnpm dev
 ```
 
-### Remote Caching
+## Current structure
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+apps - contains all frontends
+    docs - an example next site
+    web - another example next site
+    storybook - a shared storybook instance
+packages - packages used by the frontends for functionality
+    tailwind - basic tailwind config
+    shadcn - implementation of the shadcn components
+    ui - pretty much just a pointless stub right now
+tooling - packages related to the build process
+    typescript-config - shared tsconfig files
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
+## Linting
 
-```
-cd my-turborepo
-npx turbo login
-```
+Linting is currently handled from the repo root and is implemented using biome for speed.
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+## What about module federation?
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+Module federation is cool, it is more advanced than this by effectively allowing a single SPA to be indenpendantly deployable.....it is also complex to setup and maintain and most of the problems it's solving may not be needed if the sections of your site are pretty independant.
 
-```
-npx turbo link
-```
+## Is this structure good for anything else?
 
-## Useful Links
+I'm finding it works very well if you want to make lots of little micro-products that share things like auth and payment setup. As such its an excellent little micro-saas build engine.
 
-Learn more about the power of Turborepo:
 
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+
+

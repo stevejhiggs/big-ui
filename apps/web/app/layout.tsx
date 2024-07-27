@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import '@repo/tailwind/styles/globals.css';
 import './globals.css';
+import { AnalyticsListener } from '@repo/analytics';
 import { TooltipProvider } from '@repo/shadcn';
 
 const geistSans = localFont({
@@ -24,10 +25,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <TooltipProvider>
-      <html lang="en">
-        <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
-      </html>
-    </TooltipProvider>
+    <>
+      <AnalyticsListener />
+      <TooltipProvider>
+        <html lang="en">
+          <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
+        </html>
+      </TooltipProvider>
+    </>
   );
 }

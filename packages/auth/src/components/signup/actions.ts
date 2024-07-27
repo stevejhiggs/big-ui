@@ -10,7 +10,7 @@ export async function signUpAction(data: FormData) {
   const parsed = formSchema.safeParse(formData);
 
   if (!parsed.success) {
-    return redirect('/login?message=Could not authenticate user');
+    return redirect('/sign-up?message=Could not authenticate user');
   }
 
   const origin = headers().get('origin');
@@ -25,8 +25,8 @@ export async function signUpAction(data: FormData) {
   });
 
   if (error) {
-    return redirect('/login?message=Could not authenticate user');
+    return redirect('/sign-up?message=Could not authenticate user');
   }
 
-  return redirect('/login?message=Check email to continue sign in process');
+  return redirect('/sign-up?message=Check email to continue sign in process');
 }

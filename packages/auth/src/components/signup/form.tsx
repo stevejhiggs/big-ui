@@ -51,8 +51,8 @@ export function SignupForm({
           )}
         />
         <div>
-          <SubmitButton pendingText="Creating account..." className='className="flex w-full'>
-            Login
+          <SubmitButton formAction={signUpAction} pendingText="Creating account..." className='className="flex w-full'>
+            Create account
           </SubmitButton>
         </div>
         {searchParams?.message && <p className="mt-4 p-4 bg-foreground/10 text-foreground text-center">{searchParams.message}</p>}

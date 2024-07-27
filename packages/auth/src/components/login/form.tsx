@@ -52,12 +52,6 @@ export function LoginForm({
           )}
         />
         <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <Checkbox id="remember-me" name="remember-me" className="h-4 w-4 text-primary focus:ring-primary" />
-            <Label htmlFor="remember-me" className="ml-2 block text-sm text-muted-foreground">
-              Remember me
-            </Label>
-          </div>
           <div className="text-sm">
             <Link href="#" className="font-medium text-primary hover:text-primary/90" prefetch={false}>
               Forgot your password?
@@ -65,7 +59,7 @@ export function LoginForm({
           </div>
         </div>
         <div>
-          <SubmitButton pendingText="Logging in..." className='className="flex w-full'>
+          <SubmitButton formAction={signInAction} pendingText="Logging in..." className='className="flex w-full'>
             Login
           </SubmitButton>
         </div>

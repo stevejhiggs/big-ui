@@ -1,6 +1,5 @@
 'use server';
 
-import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { createServerAuthClient } from '../../index';
 import { formSchema } from './schema';
@@ -10,7 +9,7 @@ export async function signInAction(data: FormData) {
   const parsed = formSchema.safeParse(formData);
 
   if (!parsed.success) {
-    return redirect('/login?message=Could not authenticate user');
+    return redirect('/log-in?message=Could not authenticate user');
   }
 
   const supabase = createServerAuthClient();
@@ -21,7 +20,7 @@ export async function signInAction(data: FormData) {
   });
 
   if (error) {
-    return redirect('/login?message=Could not authenticate user');
+    return redirect('/log-in?message=Could not authenticate user');
   }
 
   return redirect('/protected');

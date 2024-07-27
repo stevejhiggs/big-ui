@@ -11,6 +11,10 @@ const config: Config = {
       path.dirname(require.resolve("@repo/shadcn")),
       "**/*.{ts,tsx}"
     ),
+    path.join(
+      path.dirname(require.resolve("@repo/auth")),
+      "**/*.{ts,tsx}"
+    ),
   ],
 };
 

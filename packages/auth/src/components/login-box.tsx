@@ -1,46 +1,53 @@
 'use client';
 
-import { Checkbox, Input, Label } from '@repo/shadcn';
+import { Checkbox, Form, FormControl, FormField, FormItem, FormLabel, FormMessage, Input, Label, useForm, type z, zodResolver } from '@repo/shadcn';
 import { SubmitButton } from '@repo/ui';
 import Link from 'next/link';
 import { signIn, signUp } from './actions';
+import { type FormSchema, formSchema } from './schema';
 
 export function LoginBox({
   searchParams,
 }: {
   searchParams: { message: string };
 }) {
+  const form = useForm<FormSchema>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      email: '',
+      password: '',
+    },
+  });
+
   return (
-    <div className="mx-auto w-full max-w-md space-y-8">
-      <form className="space-y-6" action="#" method="POST">
-        <div>
-          <Label htmlFor="email">Email</Label>
-          <div className="mt-1">
-            <Input
-              id="email"
-              name="email"
-              type="email"
-              autoComplete="email"
-              required
-              className="block w-full appearance-none rounded-md border border-input bg-background px-3 py-2 placeholder-muted-foreground shadow-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary sm:text-sm"
-              placeholder="you@example.com"
-            />
-          </div>
-        </div>
-        <div>
-          <Label htmlFor="password">Password</Label>
-          <div className="mt-1">
-            <Input
-              id="password"
-              name="password"
-              type="password"
-              autoComplete="current-password"
-              required
-              className="block w-full appearance-none rounded-md border border-input bg-background px-3 py-2 placeholder-muted-foreground shadow-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary sm:text-sm"
-              placeholder="Password"
-            />
-          </div>
-        </div>
+    <Form {...form}>
+      <form className="mx-auto w-full max-w-md space-y-6" onSubmit={form.handleSubmit(console.log)}>
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Email</FormLabel>
+              <FormControl>
+                <Input placeholder="you@example.com" {...field} type="email" />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="password"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Password</FormLabel>
+              <FormControl>
+                <Input placeholder="password" {...field} type="password" />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <Checkbox id="remember-me" name="remember-me" className="h-4 w-4 text-primary focus:ring-primary" />
@@ -55,7 +62,7 @@ export function LoginBox({
           </div>
         </div>
         <div>
-          <SubmitButton formAction={signIn} pendingText="Signing Up..." className='className="flex w-full'>
+          <SubmitButton formAction={signIn} pendingText="Logging in..." className='className="flex w-full'>
             Login
           </SubmitButton>
         </div>
@@ -66,6 +73,6 @@ export function LoginBox({
         </div>
         {searchParams?.message && <p className="mt-4 p-4 bg-foreground/10 text-foreground text-center">{searchParams.message}</p>}
       </form>
-    </div>
+    </Form>
   );
 }

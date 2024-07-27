@@ -3,15 +3,21 @@
 import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { createServerAuthClient } from '../index';
+import { formSchema } from './schema';
 
-export async function signIn(formData: FormData) {
-  const email = formData.get('email') as string;
-  const password = formData.get('password') as string;
+export async function signIn(data: FormData) {
+  const formData = Object.fromEntries(data);
+  const parsed = formSchema.safeParse(formData);
+
+  if (!parsed.success) {
+    return redirect('/login?message=Could not authenticate user');
+  }
+
   const supabase = createServerAuthClient();
 
   const { error } = await supabase.auth.signInWithPassword({
-    email,
-    password,
+    email: parsed.data.email,
+    password: parsed.data.password,
   });
 
   if (error) {
@@ -21,15 +27,20 @@ export async function signIn(formData: FormData) {
   return redirect('/protected');
 }
 
-export async function signUp(formData: FormData) {
+export async function signUp(data: FormData) {
+  const formData = Object.fromEntries(data);
+  const parsed = formSchema.safeParse(formData);
+
+  if (!parsed.success) {
+    return redirect('/login?message=Could not authenticate user');
+  }
+
   const origin = headers().get('origin');
-  const email = formData.get('email') as string;
-  const password = formData.get('password') as string;
   const supabase = createServerAuthClient();
 
   const { error } = await supabase.auth.signUp({
-    email,
-    password,
+    email: parsed.data.email,
+    password: parsed.data.password,
     options: {
       emailRedirectTo: `${origin}/auth/callback`,
     },

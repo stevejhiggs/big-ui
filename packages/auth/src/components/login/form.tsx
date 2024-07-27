@@ -3,10 +3,11 @@
 import { Checkbox, Form, FormControl, FormField, FormItem, FormLabel, FormMessage, Input, Label, useForm, type z, zodResolver } from '@repo/shadcn';
 import { SubmitButton } from '@repo/ui';
 import Link from 'next/link';
-import { signIn, signUp } from './actions';
+import { useRef } from 'react';
+import { signInAction } from './actions';
 import { type FormSchema, formSchema } from './schema';
 
-export function LoginBox({
+export function LoginForm({
   searchParams,
 }: {
   searchParams: { message: string };
@@ -19,9 +20,11 @@ export function LoginBox({
     },
   });
 
+  const formRef = useRef<HTMLFormElement>(null);
+
   return (
     <Form {...form}>
-      <form className="mx-auto w-full max-w-md space-y-6" onSubmit={form.handleSubmit(console.log)}>
+      <form ref={formRef} action={signInAction} className="mx-auto w-full max-w-md space-y-6" onSubmit={form.handleSubmit(() => formRef.current?.submit())}>
         <FormField
           control={form.control}
           name="email"
@@ -29,7 +32,7 @@ export function LoginBox({
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="you@example.com" {...field} type="email" />
+                <Input placeholder="you@example.com" {...field} autoComplete="email" />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -62,13 +65,8 @@ export function LoginBox({
           </div>
         </div>
         <div>
-          <SubmitButton formAction={signIn} pendingText="Logging in..." className='className="flex w-full'>
+          <SubmitButton pendingText="Logging in..." className='className="flex w-full'>
             Login
-          </SubmitButton>
-        </div>
-        <div>
-          <SubmitButton formAction={signUp} variant={'outline'} pendingText="Signing Up..." className='className="flex w-full'>
-            Sign Up
           </SubmitButton>
         </div>
         {searchParams?.message && <p className="mt-4 p-4 bg-foreground/10 text-foreground text-center">{searchParams.message}</p>}

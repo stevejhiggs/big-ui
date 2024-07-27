@@ -40,7 +40,7 @@
   },
   "peerDependencies": {
     "@repo/tailwind": "workspace:*",
-    "react": "*",
-    "react-dom": "*"
+    "react": "catalog:",
+    "react-dom": "catalog:"
   }
 }

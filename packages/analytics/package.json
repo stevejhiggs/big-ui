@@ -23,7 +23,7 @@
     "@vercel/speed-insights": "^1.0.12"
   },
   "peerDependencies": {
-    "react": "*",
-    "react-dom": "*"
+    "react": "catalog:",
+    "react-dom": "catalog:"
   }
 }

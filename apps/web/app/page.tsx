@@ -4,19 +4,19 @@ import * as React from 'react';
 
 import { ChevronLeft, ChevronRight, Copy, CreditCard, File, Home, LineChart, ListFilter, MoreVertical, Package, Package2, PanelLeft, Search, Settings, ShoppingCart, Truck, Users2 } from 'lucide-react';
 
-import { Badge } from '@repo/shadcn';
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@repo/shadcn';
-import { Button } from '@repo/shadcn';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@repo/shadcn';
-import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@repo/shadcn';
-import { Input } from '@repo/shadcn';
-import { Pagination, PaginationContent, PaginationItem } from '@repo/shadcn';
-import { Progress } from '@repo/shadcn';
-import { Separator } from '@repo/shadcn';
-import { Sheet, SheetContent, SheetTrigger } from '@repo/shadcn';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@repo/shadcn';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@repo/shadcn';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@repo/shadcn';
+import { Badge } from '../../../packages/shadcn/src';
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '../../../packages/shadcn/src';
+import { Button } from '../../../packages/shadcn/src';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../../../packages/shadcn/src';
+import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '../../../packages/shadcn/src';
+import { Input } from '../../../packages/shadcn/src';
+import { Pagination, PaginationContent, PaginationItem } from '../../../packages/shadcn/src';
+import { Progress } from '../../../packages/shadcn/src';
+import { Separator } from '../../../packages/shadcn/src';
+import { Sheet, SheetContent, SheetTrigger } from '../../../packages/shadcn/src';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../../packages/shadcn/src';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '../../../packages/shadcn/src';
+import { Tooltip, TooltipContent, TooltipTrigger } from '../../../packages/shadcn/src';
 
 export default function Dashboard() {
   return (

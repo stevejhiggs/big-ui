@@ -1,5 +1,8 @@
-// todo, work out why these need explicit extensions
+export { zodResolver } from '@hookform/resolvers/zod';
+export { useForm } from 'react-hook-form';
+export { z } from 'zod';
 
+// todo, work out why these need explicit extensions
 export { Alert } from './components/ui/alert.tsx';
 
 export {
@@ -26,7 +29,7 @@ export {
   BreadcrumbSeparator,
 } from './components/ui/breadcrumb.tsx';
 
-export { Button, buttonVariants } from './components/ui/button.tsx';
+export { Button, buttonVariants, type ButtonProps } from './components/ui/button.tsx';
 
 export {
   Card,
@@ -56,6 +59,8 @@ export {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from './components/ui/dropdown-menu.tsx';
+
+export { useFormField, Form, FormItem, FormLabel, FormControl, FormDescription, FormMessage, FormField } from './components/ui/form.tsx';
 
 export { Input } from './components/ui/input.tsx';
 export { Label } from './components/ui/label.tsx';

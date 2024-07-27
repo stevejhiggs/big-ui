@@ -12,13 +12,17 @@
   },
   "dependencies": {
     "@repo/analytics": "workspace:*",
+    "@repo/auth": "workspace:*",
     "@repo/shadcn": "workspace:*",
+    "@repo/supabase": "workspace:*",
     "@repo/tailwind": "workspace:*",
     "@repo/ui": "workspace:*",
+    "@supabase/ssr": "^0.4.0",
+    "@supabase/supabase-js": "^2.44.4",
     "lucide-react": "catalog:",
-    "next": "15.0.0-rc.0",
-    "react": "19.0.0-rc-f994737d14-20240522",
-    "react-dom": "19.0.0-rc-f994737d14-20240522",
+    "next": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
     "tailwindcss": "catalog:",
     "tailwindcss-animate": "catalog:"
   },
@@ -28,7 +32,7 @@
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "autoprefixer": "^10.4.19",
-    "postcss": "^8.4.39",
+    "postcss": "^8.4.40",
     "typescript": "catalog:"
   }
 }

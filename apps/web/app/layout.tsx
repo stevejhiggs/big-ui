@@ -3,7 +3,7 @@ import localFont from 'next/font/local';
 import '@repo/tailwind/styles/globals.css';
 import './globals.css';
 import { AnalyticsListener } from '@repo/analytics';
-import { TooltipProvider } from '../../../packages/shadcn/src';
+import { TooltipProvider } from '@repo/shadcn';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',

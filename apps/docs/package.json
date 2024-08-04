@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo --port 3001",
+    "dev": "next dev --turbo --port 3001 --turbo",
     "build": "next build",
     "start": "next start",
     "clean": "rm -rf .turbo node_modules",
@@ -11,9 +11,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@repo/ui": "workspace:*",
-    "react": "19.0.0-rc-f994737d14-20240522",
-    "react-dom": "19.0.0-rc-f994737d14-20240522",
+    "@repo/shadcn": "workspace:*",
+    "react": "catalog:",
+    "react-dom": "catalog:",
     "next": "catalog:"
   },
   "devDependencies": {

@@ -10,6 +10,11 @@
     "enabled": true,
     "rules": {
       "recommended": true,
+      "a11y": {
+        "useSemanticElements": "off",
+        "useFocusableInteractive": "off",
+        "noRedundantRoles": "off"
+      },
       "complexity": {
         "noExtraBooleanCast": "error",
         "noForEach": "error",

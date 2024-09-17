@@ -14,7 +14,7 @@
     "@repo/shadcn": "workspace:*",
     "@repo/tailwind": "workspace:*",
     "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.40",
+    "postcss": "^8.4.47",
     "react": "catalog:",
     "react-dom": "catalog:",
     "tailwindcss": "catalog:",
@@ -22,19 +22,19 @@
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@storybook/addon-essentials": "^8.2.7",
-    "@storybook/addon-interactions": "^8.2.7",
-    "@storybook/addon-links": "^8.2.7",
-    "@storybook/addon-themes": "^8.2.7",
-    "@storybook/blocks": "^8.2.7",
-    "@storybook/react": "^8.2.7",
-    "@storybook/react-vite": "^8.2.7",
-    "@storybook/test": "^8.2.7",
+    "@storybook/addon-essentials": "^8.3.1",
+    "@storybook/addon-interactions": "^8.3.1",
+    "@storybook/addon-links": "^8.3.1",
+    "@storybook/addon-themes": "^8.3.1",
+    "@storybook/blocks": "^8.3.1",
+    "@storybook/react": "^8.3.1",
+    "@storybook/react-vite": "^8.3.1",
+    "@storybook/test": "^8.3.1",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "^4.3.1",
-    "storybook": "^8.2.6",
+    "storybook": "^8.3.1",
     "typescript": "catalog:",
-    "vite": "^5.3.5"
+    "vite": "^5.4.6"
   }
 }

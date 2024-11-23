@@ -1,5 +1,9 @@
 'use client';
 
+export { z } from 'zod';
+export { zodResolver } from '@hookform/resolvers/zod';
+export { useForm } from 'react-hook-form';
+
 import type * as LabelPrimitive from '@radix-ui/react-label';
 import { Slot } from '@radix-ui/react-slot';
 import * as React from 'react';

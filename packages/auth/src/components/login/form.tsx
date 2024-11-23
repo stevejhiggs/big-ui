@@ -1,6 +1,7 @@
 'use client';
 
-import { Checkbox, Form, FormControl, FormField, FormItem, FormLabel, FormMessage, Input, Label, useForm, type z, zodResolver } from '@repo/shadcn';
+import { Input } from '@repo/shadcn';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, useForm,  zodResolver } from '@repo/shadcn/components/form.tsx';
 import { SubmitButton } from '@repo/ui';
 import Link from 'next/link';
 import { useRef } from 'react';

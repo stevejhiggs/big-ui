@@ -13,8 +13,8 @@ export async function signUpAction(data: FormData) {
     return redirect('/sign-up?message=Could not authenticate user');
   }
 
-  const origin = headers().get('origin');
-  const supabase = createServerAuthClient();
+  const origin = (await headers()).get('origin');
+  const supabase = await createServerAuthClient();
 
   const { error } = await supabase.auth.signUp({
     email: parsed.data.email,

@@ -12,7 +12,7 @@ export async function signInAction(data: FormData) {
     return redirect('/log-in?message=Could not authenticate user');
   }
 
-  const supabase = createServerAuthClient();
+  const supabase = await createServerAuthClient();
 
   const { error } = await supabase.auth.signInWithPassword({
     email: parsed.data.email,

@@ -1,8 +1,8 @@
 import { createServerClient } from '@repo/supabase';
 import { cookies } from 'next/headers';
 
-export function createServerAuthClient() {
-  const cookieStore = cookies();
+export async function createServerAuthClient() {
+  const cookieStore = await cookies();
 
   // biome-ignore lint/style/noNonNullAssertion: <explanation>
   return createServerClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!, {

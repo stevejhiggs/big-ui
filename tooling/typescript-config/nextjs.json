@@ -6,6 +6,7 @@
     "plugins": [{ "name": "next" }],
     "allowJs": true,
     "jsx": "preserve",
-    "noEmit": true
+    "noEmit": true,
+    "composite": true
   }
 }

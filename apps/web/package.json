@@ -18,7 +18,7 @@
     "@repo/tailwind": "workspace:*",
     "@repo/ui": "workspace:*",
     "@supabase/ssr": "^0.5.2",
-    "@supabase/supabase-js": "^2.46.1",
+    "@supabase/supabase-js": "^2.47.10",
     "lucide-react": "catalog:",
     "next": "catalog:",
     "react": "catalog:",

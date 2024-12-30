@@ -171,6 +171,9 @@ importers:
       '@tanstack/start':
         specifier: ^1.92.11
         version: 1.92.11(@types/node@22.10.2)(db0@0.2.1)(ioredis@5.4.2)(jiti@2.4.2)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(terser@5.37.0)(tsx@4.19.2)(typescript@5.7.2)(vite@6.0.6(@types/node@22.10.2)(jiti@2.4.2)(terser@5.37.0)(tsx@4.19.2)(yaml@2.5.1))(yaml@2.5.1)
+      lucide-react:
+        specifier: 'catalog:'
+        version: 0.469.0(react@19.0.0)
       react:
         specifier: 'catalog:'
         version: 19.0.0

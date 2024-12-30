@@ -24,6 +24,7 @@
     "@tanstack/react-router": "^1.92.11",
     "@tanstack/react-router-with-query": "^1.92.11",
     "@tanstack/start": "^1.92.11",
+    "lucide-react": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
     "vinxi": "^0.5.1"

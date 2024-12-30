@@ -1,0 +1,9 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "./base.json",
+    "display": "Vite powered website",
+    "compilerOptions": {
+        "jsx": "react-jsx",
+        "composite": true
+    }
+  }

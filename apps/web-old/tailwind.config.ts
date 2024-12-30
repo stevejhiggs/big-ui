@@ -6,7 +6,6 @@ const config: Config = {
   presets: [tailwindBase],
   content: [
     './app/**/*.{js,jsx,ts,tsx}',
-    './lib/**/*.{js,jsx,ts,tsx}',
     './public/index.html',
     path.join(
       path.dirname(require.resolve("@repo/shadcn")),

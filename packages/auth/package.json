@@ -26,8 +26,6 @@
   },
   "peerDependencies": {
     "@repo/tailwind": "workspace:*",
-    "@repo/ui": "workspace:*",
-    "next": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:"
   }

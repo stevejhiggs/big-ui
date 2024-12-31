@@ -1,9 +1,9 @@
+import { AuthForm } from '@repo/auth/components';
 import { useRouter } from '@tanstack/react-router';
 import { useServerFn } from '@tanstack/start';
 import { useMutation } from '../hooks/useMutation';
 import { loginFn } from '../routes/_authed';
 import { signupFn } from '../routes/signup';
-import { Auth } from './Auth';
 
 export function Login() {
   const router = useRouter();
@@ -24,7 +24,7 @@ export function Login() {
   });
 
   return (
-    <Auth
+    <AuthForm
       actionText="Login"
       status={loginMutation.status}
       onSubmit={(e) => {

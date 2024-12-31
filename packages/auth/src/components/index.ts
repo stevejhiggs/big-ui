@@ -1,2 +1,1 @@
-export { LoginForm } from './login/form.tsx';
-export { SignupForm } from './signup/form.tsx';
+export { AuthForm } from './auth/form.tsx';

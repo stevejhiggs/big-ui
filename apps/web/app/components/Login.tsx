@@ -1,4 +1,4 @@
-import { AuthForm } from '@repo/auth/components';
+import { AuthForm, type AuthFormValues } from '@repo/auth/components';
 import { useRouter } from '@tanstack/react-router';
 import { useServerFn } from '@tanstack/start';
 import { useMutation } from '../hooks/useMutation';
@@ -27,13 +27,11 @@ export function Login() {
     <AuthForm
       actionText="Login"
       status={loginMutation.status}
-      onSubmit={(e) => {
-        const formData = new FormData(e.target as HTMLFormElement);
-
+      onSubmitHandler={(values: AuthFormValues) => {
         loginMutation.mutate({
           data: {
-            email: formData.get('email') as string,
-            password: formData.get('password') as string,
+            email: values.email,
+            password: values.password,
           },
         });
       }}

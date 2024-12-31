@@ -1,16 +1,18 @@
 import { Button, Input } from '@repo/shadcn';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, useForm, zodResolver } from '@repo/shadcn/components/form.tsx';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, useForm, type z, zodResolver } from '@repo/shadcn/components/form.tsx';
 import { useRef } from 'react';
 import { type FormSchema, formSchema } from './schema';
 
+export type AuthFormValues = z.infer<typeof formSchema>;
+
 export function AuthForm({
   actionText,
-  onSubmit,
+  onSubmitHandler,
   status,
   afterSubmit,
 }: {
   actionText: string;
-  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  onSubmitHandler: (values: AuthFormValues) => void;
   status: 'pending' | 'idle' | 'success' | 'error';
   afterSubmit?: React.ReactNode;
 }) {
@@ -24,16 +26,16 @@ export function AuthForm({
 
   const formRef = useRef<HTMLFormElement>(null);
 
+  function onSubmit(values: AuthFormValues) {
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
+    console.log(values);
+    onSubmitHandler(values);
+  }
+
   return (
     <Form {...form}>
-      <form
-        ref={formRef}
-        onSubmit={(e) => {
-          e.preventDefault();
-          onSubmit(e);
-        }}
-        className="mx-auto w-full max-w-md space-y-6"
-      >
+      <form ref={formRef} onSubmit={form.handleSubmit(onSubmit)} className="mx-auto w-full max-w-md space-y-6">
         <FormField
           control={form.control}
           name="email"

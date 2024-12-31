@@ -133,3 +133,4 @@ storybook-static
 .DS_Store
 .output
 .vinxi
+.vercel

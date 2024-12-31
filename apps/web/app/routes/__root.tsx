@@ -5,7 +5,7 @@ import { Meta, Scripts, createServerFn } from '@tanstack/start';
 import { type ReactNode, Suspense, lazy } from 'react';
 
 import globalCss from '@/styles/globals.css?url';
-import { getSupabaseServerClient } from '@/utils/supabase';
+import { createServerAuthClient } from '@repo/auth';
 import { TooltipProvider } from '@repo/shadcn';
 import tailwindCss from '@repo/tailwind/styles/globals.css?url';
 import type { User } from '@supabase/auth-js';
@@ -21,7 +21,7 @@ const TanStackRouterDevtools =
       );
 
 const fetchUser = createServerFn({ method: 'GET' }).handler(async () => {
-  const supabase = await getSupabaseServerClient();
+  const supabase = createServerAuthClient();
   const { data, error: _error } = await supabase.auth.getUser();
 
   if (!data.user?.email) {

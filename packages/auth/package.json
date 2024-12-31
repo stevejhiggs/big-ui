@@ -5,7 +5,6 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
-    "./middleware": "./src/middleware.ts",
     "./components": "./src/components/index.ts"
   },
   "license": "MIT",
@@ -16,7 +15,8 @@
   },
   "dependencies": {
     "@repo/supabase": "workspace:*",
-    "@repo/shadcn": "workspace:*"
+    "@repo/shadcn": "workspace:*",
+    "vinxi": "^0.5.1"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",

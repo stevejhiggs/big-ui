@@ -1,12 +1,12 @@
+import { createServerAuthClient } from '@repo/auth';
 import { createFileRoute } from '@tanstack/react-router';
 import { createServerFn } from '@tanstack/start';
 import { Login } from '../components/Login';
-import { getSupabaseServerClient } from '../utils/supabase';
 
 export const loginFn = createServerFn()
   .validator((d) => d as { email: string; password: string })
   .handler(async ({ data }) => {
-    const supabase = await getSupabaseServerClient();
+    const supabase = createServerAuthClient();
     const { error } = await supabase.auth.signInWithPassword({
       email: data.email,
       password: data.password,

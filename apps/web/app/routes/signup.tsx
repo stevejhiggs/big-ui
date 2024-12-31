@@ -1,13 +1,13 @@
+import { createServerAuthClient } from '@repo/auth';
+import { AuthForm, type AuthFormValues } from '@repo/auth/components';
 import { createFileRoute, redirect } from '@tanstack/react-router';
 import { createServerFn, useServerFn } from '@tanstack/start';
-import { Auth } from '../components/Auth';
 import { useMutation } from '../hooks/useMutation';
-import { getSupabaseServerClient } from '../utils/supabase';
 
 export const signupFn = createServerFn()
   .validator((d: unknown) => d as { email: string; password: string; redirectUrl?: string })
   .handler(async ({ data }) => {
-    const supabase = await getSupabaseServerClient();
+    const supabase = createServerAuthClient();
     const { error } = await supabase.auth.signUp({
       email: data.email,
       password: data.password,
@@ -35,16 +35,14 @@ function SignupComp() {
   });
 
   return (
-    <Auth
+    <AuthForm
       actionText="Sign Up"
       status={signupMutation.status}
-      onSubmit={(e) => {
-        const formData = new FormData(e.target as HTMLFormElement);
-
+      onSubmitHandler={(values: AuthFormValues) => {
         signupMutation.mutate({
           data: {
-            email: formData.get('email') as string,
-            password: formData.get('password') as string,
+            email: values.email,
+            password: values.password,
           },
         });
       }}

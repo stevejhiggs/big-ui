@@ -1,9 +1,9 @@
+import { createServerAuthClient } from '@repo/auth';
 import { createFileRoute, redirect } from '@tanstack/react-router';
 import { createServerFn } from '@tanstack/start';
-import { getSupabaseServerClient } from '../utils/supabase';
 
 const logoutFn = createServerFn().handler(async () => {
-  const supabase = await getSupabaseServerClient();
+  const supabase = createServerAuthClient();
   const { error } = await supabase.auth.signOut();
 
   if (error) {

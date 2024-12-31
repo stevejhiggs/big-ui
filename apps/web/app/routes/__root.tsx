@@ -4,7 +4,7 @@ import { Outlet, ScrollRestoration, createRootRouteWithContext } from '@tanstack
 import { Meta, Scripts } from '@tanstack/start';
 import { type ReactNode, Suspense, lazy } from 'react';
 
-import globalCss from '@/lib/styles/globals.css?url';
+import globalCss from '@/styles/globals.css?url';
 import { TooltipProvider } from '@repo/shadcn';
 import tailwindCss from '@repo/tailwind/styles/globals.css?url';
 

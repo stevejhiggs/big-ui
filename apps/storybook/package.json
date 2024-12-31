@@ -35,6 +35,6 @@
     "@vitejs/plugin-react": "^4.3.4",
     "storybook": "^8.4.7",
     "typescript": "catalog:",
-    "vite": "^5.4.11"
+    "vite": "^6.0.6"
   }
 }

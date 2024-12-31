@@ -1,12 +1,14 @@
 import type { QueryClient } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Outlet, ScrollRestoration, createRootRouteWithContext } from '@tanstack/react-router';
-import { Meta, Scripts } from '@tanstack/start';
+import { Meta, Scripts, createServerFn } from '@tanstack/start';
 import { type ReactNode, Suspense, lazy } from 'react';
 
 import globalCss from '@/styles/globals.css?url';
+import { getSupabaseServerClient } from '@/utils/supabase';
 import { TooltipProvider } from '@repo/shadcn';
 import tailwindCss from '@repo/tailwind/styles/globals.css?url';
+import type { User } from '@supabase/auth-js';
 
 const TanStackRouterDevtools =
   process.env.NODE_ENV === 'production'
@@ -18,7 +20,18 @@ const TanStackRouterDevtools =
         })),
       );
 
-export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+const fetchUser = createServerFn({ method: 'GET' }).handler(async () => {
+  const supabase = await getSupabaseServerClient();
+  const { data, error: _error } = await supabase.auth.getUser();
+
+  if (!data.user?.email) {
+    return null;
+  }
+
+  return data.user;
+});
+
+export const Route = createRootRouteWithContext<{ queryClient: QueryClient; user?: User }>()({
   head: () => ({
     meta: [
       {
@@ -37,6 +50,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: 'stylesheet', href: globalCss },
     ],
   }),
+  beforeLoad: async () => {
+    const user = await fetchUser();
+
+    return {
+      user,
+    };
+  },
   component: RootComponent,
 });
 

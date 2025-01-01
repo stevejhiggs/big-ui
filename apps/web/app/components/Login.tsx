@@ -1,9 +1,22 @@
+import { login } from '@repo/auth';
 import { AuthForm, type AuthFormValues } from '@repo/auth/components';
 import { useRouter } from '@tanstack/react-router';
-import { useServerFn } from '@tanstack/start';
+import { createServerFn, useServerFn } from '@tanstack/start';
 import { useMutation } from '../hooks/useMutation';
-import { loginFn } from '../routes/_authed';
 import { signupFn } from '../routes/signup';
+
+export const loginFn = createServerFn()
+  .validator((d) => d as { email: string; password: string })
+  .handler(async ({ data }) => {
+    const error = await login(data);
+
+    if (error) {
+      return {
+        error: true,
+        message: error.message,
+      };
+    }
+  });
 
 export function Login() {
   const router = useRouter();

@@ -1,6 +1,21 @@
 import { Login } from '@/components/Login';
 import silentKite from '@assets/silent-kite.webp';
+import { login } from '@repo/auth';
 import { Link, createFileRoute, redirect } from '@tanstack/react-router';
+import { createServerFn } from '@tanstack/start';
+
+export const loginFn = createServerFn()
+  .validator((d) => d as { email: string; password: string })
+  .handler(async ({ data }) => {
+    const error = await login(data);
+
+    if (error) {
+      return {
+        error: true,
+        message: error.message,
+      };
+    }
+  });
 
 export const Route = createFileRoute('/login')({
   component: RouteComponent,

@@ -14,7 +14,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@repo/analytics": "workspace:*",
     "@repo/auth": "workspace:*",
     "@repo/shadcn": "workspace:*",
     "@repo/supabase": "workspace:*",

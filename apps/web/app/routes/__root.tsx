@@ -5,10 +5,9 @@ import { Meta, Scripts, createServerFn } from '@tanstack/start';
 import { type ReactNode, Suspense, lazy } from 'react';
 
 import globalCss from '@/styles/globals.css?url';
-import { getUser } from '@repo/auth';
+import { type User, getUser } from '@repo/auth';
 import { TooltipProvider } from '@repo/shadcn';
 import tailwindCss from '@repo/tailwind/styles/globals.css?url';
-import type { User } from '@supabase/auth-js';
 
 const TanStackRouterDevtools =
   process.env.NODE_ENV === 'production'

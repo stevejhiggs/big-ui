@@ -4,9 +4,10 @@ import { Outlet, ScrollRestoration, createRootRouteWithContext } from '@tanstack
 import { Meta, Scripts, createServerFn } from '@tanstack/start';
 import { type ReactNode, Suspense, lazy } from 'react';
 
-import globalCss from '@/styles/globals.css?url';
 import { type User, getUser } from '@repo/auth';
 import { TooltipProvider } from '@repo/shadcn';
+
+import globalCss from '@/styles/globals.css?url';
 import tailwindCss from '@repo/tailwind/styles/globals.css?url';
 
 const TanStackRouterDevtools =

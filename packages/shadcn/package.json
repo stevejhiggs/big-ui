@@ -5,7 +5,7 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
-    "./components/*": "./src/components/ui/*"
+    "./components/*": "./src/components/ui/*.tsx"
   },
   "license": "MIT",
   "scripts": {
@@ -34,7 +34,7 @@
     "embla-carousel-react": "^8.5.1",
     "lucide-react": "catalog:",
     "react-hook-form": "^7.54.2",
-    "zod": "^3.24.1"
+    "zod": "catalog:"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",

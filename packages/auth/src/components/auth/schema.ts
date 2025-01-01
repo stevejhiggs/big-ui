@@ -1,4 +1,4 @@
-import { z } from '@repo/shadcn/components/form.tsx';
+import { z } from 'zod';
 
 export type FormSchema = z.infer<typeof formSchema>;
 

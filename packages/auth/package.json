@@ -17,7 +17,8 @@
     "@repo/supabase": "workspace:*",
     "@repo/shadcn": "workspace:*",
     "@supabase/auth-js": "^2.67.3",
-    "vinxi": "^0.5.1"
+    "vinxi": "^0.5.1",
+    "zod": "catalog:"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",

@@ -1,6 +1,7 @@
 import { Button, Input } from '@repo/shadcn';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, useForm, type z, zodResolver } from '@repo/shadcn/components/form.tsx';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, useForm, zodResolver } from '@repo/shadcn/components/form';
 import { useRef } from 'react';
+import type { z } from 'zod';
 import { type FormSchema, formSchema } from './schema';
 
 export type AuthFormValues = z.infer<typeof formSchema>;

@@ -1,8 +1,8 @@
 import { signup } from '@repo/auth';
 import { AuthForm, type AuthFormValues } from '@repo/auth/components';
+import { useMutation } from '@tanstack/react-query';
 import { createFileRoute, redirect } from '@tanstack/react-router';
 import { createServerFn, useServerFn } from '@tanstack/start';
-import { useMutation } from '../hooks/useMutation';
 
 export const signupFn = createServerFn()
   .validator((d: unknown) => d as { email: string; password: string; redirectUrl?: string })
@@ -27,7 +27,7 @@ export const Route = createFileRoute('/signup')({
 
 function SignupComp() {
   const signupMutation = useMutation({
-    fn: useServerFn(signupFn),
+    mutationFn: useServerFn(signupFn),
   });
 
   return (

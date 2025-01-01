@@ -1,8 +1,8 @@
 import { login } from '@repo/auth';
 import { AuthForm, type AuthFormValues } from '@repo/auth/components';
+import { useMutation } from '@tanstack/react-query';
 import { useRouter } from '@tanstack/react-router';
 import { createServerFn } from '@tanstack/start';
-import { useMutation } from '../hooks/useMutation';
 
 export const loginFn = createServerFn()
   .validator((d) => d as { email: string; password: string })
@@ -21,9 +21,9 @@ export function Login() {
   const router = useRouter();
 
   const loginMutation = useMutation({
-    fn: loginFn,
+    mutationFn: loginFn,
     onSuccess: async (ctx) => {
-      if (!ctx.data?.error) {
+      if (!ctx?.error) {
         await router.invalidate();
         router.navigate({ to: '/' });
         return;

@@ -16,8 +16,8 @@
   "dependencies": {
     "@repo/supabase": "workspace:*",
     "@repo/shadcn": "workspace:*",
-    "@supabase/auth-js": "^2.67.3",
-    "vinxi": "^0.5.1",
+    "@supabase/auth-js": "^2.68.0",
+    "vinxi": "^0.5.2",
     "zod": "catalog:"
   },
   "devDependencies": {

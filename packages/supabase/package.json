@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "typescript": "catalog:"
+    "typescript": "catalog:tooling"
   },
   "dependencies": {
     "@supabase/ssr": "^0.5.2",

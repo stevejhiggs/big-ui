@@ -11,14 +11,13 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@repo/shadcn": "workspace:*",
-    "@repo/tailwind": "workspace:*",
+    "@repo/ui": "workspace:*",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.5.3",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "tailwindcss": "catalog:",
-    "tailwindcss-animate": "catalog:"
+    "tailwindcss": "catalog:styling",
+    "tailwindcss-animate": "catalog:styling"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
@@ -34,7 +33,7 @@
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "^4.3.4",
     "storybook": "^8.6.3",
-    "typescript": "catalog:",
+    "typescript": "catalog:tooling",
     "vite": "^6.2.0"
   }
 }

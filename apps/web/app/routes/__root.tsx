@@ -5,7 +5,7 @@ import { Meta, Scripts, createServerFn } from '@tanstack/start';
 import { type ReactNode, Suspense, lazy } from 'react';
 
 import { type User, getUser } from '@repo/auth';
-import { TooltipProvider } from '@repo/shadcn';
+import { TooltipProvider } from '@repo/ui/components/base/tooltip';
 
 import globalCss from '@/styles/globals.css?url';
 

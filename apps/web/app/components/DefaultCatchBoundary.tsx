@@ -1,4 +1,4 @@
-import { Button } from '@repo/shadcn';
+import { Button } from '@repo/ui/components/base/button';
 import { ErrorComponent, type ErrorComponentProps, Link, rootRouteId, useMatch, useRouter } from '@tanstack/react-router';
 
 export function DefaultCatchBoundary({ error }: Readonly<ErrorComponentProps>) {

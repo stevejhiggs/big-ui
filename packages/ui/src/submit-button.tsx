@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, type ButtonProps } from '@repo/shadcn';
+import { Button, type ButtonProps } from '@repo/ui/components/base/button';
 import { useFormStatus } from 'react-dom';
 
 type Props = ButtonProps & {

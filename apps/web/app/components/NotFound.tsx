@@ -1,4 +1,4 @@
-import { Button } from '@repo/shadcn';
+import { Button } from '@repo/ui/components/base/button';
 import { Link } from '@tanstack/react-router';
 
 export function NotFound() {

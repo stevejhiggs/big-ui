@@ -42,7 +42,7 @@ import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from '@repo/shadcn';
+} from '@repo/ui/components/base';
 
 import { Link, createFileRoute } from '@tanstack/react-router';
 import { ChevronLeft, ChevronRight, Copy, CreditCard, File, Home, LineChart, ListFilter, MoreVertical, Package, Package2, PanelLeft, Search, Settings, ShoppingCart, Truck, Users2 } from 'lucide-react';

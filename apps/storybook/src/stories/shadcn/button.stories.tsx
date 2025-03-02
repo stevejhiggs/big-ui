@@ -1,4 +1,4 @@
-import { Button } from '@repo/shadcn';
+import { Button } from '@repo/ui/components/base/button';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 

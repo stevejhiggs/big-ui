@@ -1,5 +1,6 @@
-import { Button, Input } from '@repo/shadcn';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, useForm, zodResolver } from '@repo/shadcn/components/form';
+import { Button } from '@repo/ui/components/base/button';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, useForm, zodResolver } from '@repo/ui/components/base/form';
+import { Input } from '@repo/ui/components/base/input';
 import { useRef } from 'react';
 import type { z } from 'zod';
 import { type FormSchema, formSchema } from './schema';

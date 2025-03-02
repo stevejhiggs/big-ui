@@ -24,18 +24,23 @@ catalogs:
     react-dom:
       specifier: ^19.0.0
       version: 19.0.0
+    zod:
+      specifier: ^3.24.2
+      version: 3.24.2
+  styling:
+    '@tailwindcss/postcss':
+      specifier: 4.0.9
+      version: 4.0.9
     tailwindcss:
       specifier: ^4.0.9
       version: 4.0.9
     tailwindcss-animate:
       specifier: ^1.0.7
       version: 1.0.7
+  tooling:
     typescript:
       specifier: ^5.8.2
       version: 5.8.2
-    zod:
-      specifier: ^3.24.2
-      version: 3.24.2
 
 importers:
 
@@ -51,7 +56,7 @@ importers:
         specifier: ^2.4.4
         version: 2.4.4
       typescript:
-        specifier: 'catalog:'
+        specifier: catalog:tooling
         version: 5.8.2
 
   apps/docs:
@@ -68,12 +73,9 @@ importers:
 
   apps/storybook:
     dependencies:
-      '@repo/shadcn':
+      '@repo/ui':
         specifier: workspace:*
-        version: link:../../packages/shadcn
-      '@repo/tailwind':
-        specifier: workspace:*
-        version: link:../../packages/tailwind
+        version: link:../../packages/ui
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.5.3)
@@ -87,10 +89,10 @@ importers:
         specifier: 'catalog:'
         version: 19.0.0(react@19.0.0)
       tailwindcss:
-        specifier: 'catalog:'
+        specifier: catalog:styling
         version: 4.0.9
       tailwindcss-animate:
-        specifier: 'catalog:'
+        specifier: catalog:styling
         version: 1.0.7(tailwindcss@4.0.9)
     devDependencies:
       '@repo/typescript-config':
@@ -133,7 +135,7 @@ importers:
         specifier: ^8.6.3
         version: 8.6.3(prettier@3.5.2)
       typescript:
-        specifier: 'catalog:'
+        specifier: catalog:tooling
         version: 5.8.2
       vite:
         specifier: ^6.2.0
@@ -144,15 +146,9 @@ importers:
       '@repo/auth':
         specifier: workspace:*
         version: link:../../packages/auth
-      '@repo/shadcn':
-        specifier: workspace:*
-        version: link:../../packages/shadcn
       '@repo/supabase':
         specifier: workspace:*
         version: link:../../packages/supabase
-      '@repo/tailwind':
-        specifier: workspace:*
-        version: link:../../packages/tailwind
       '@repo/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -203,10 +199,10 @@ importers:
         specifier: ^4.3.4
         version: 4.3.4(vite@6.2.0(@types/node@22.13.8)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.37.0)(tsx@4.19.2)(yaml@2.5.1))
       tailwindcss:
-        specifier: ^4.0.9
+        specifier: catalog:styling
         version: 4.0.9
       typescript:
-        specifier: 'catalog:'
+        specifier: catalog:tooling
         version: 5.8.2
       vite-tsconfig-paths:
         specifier: ^5.1.4
@@ -214,15 +210,12 @@ importers:
 
   packages/auth:
     dependencies:
-      '@repo/shadcn':
-        specifier: workspace:*
-        version: link:../shadcn
       '@repo/supabase':
         specifier: workspace:*
         version: link:../supabase
-      '@repo/tailwind':
+      '@repo/ui':
         specifier: workspace:*
-        version: link:../tailwind
+        version: link:../ui
       '@supabase/auth-js':
         specifier: ^2.68.0
         version: 2.68.0
@@ -249,10 +242,26 @@ importers:
         specifier: 'catalog:'
         version: 19.0.4(@types/react@19.0.10)
       typescript:
-        specifier: 'catalog:'
+        specifier: catalog:tooling
         version: 5.8.2
 
-  packages/shadcn:
+  packages/supabase:
+    dependencies:
+      '@supabase/ssr':
+        specifier: ^0.5.2
+        version: 0.5.2(@supabase/supabase-js@2.49.1)
+      '@supabase/supabase-js':
+        specifier: ^2.49.1
+        version: 2.49.1
+    devDependencies:
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../tooling/typescript-config
+      typescript:
+        specifier: catalog:tooling
+        version: 5.8.2
+
+  packages/ui:
     dependencies:
       '@hookform/resolvers':
         specifier: ^4.1.2
@@ -302,18 +311,18 @@ importers:
       '@radix-ui/react-tooltip':
         specifier: ^1.1.8
         version: 1.1.8(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@repo/tailwind':
-        specifier: workspace:*
-        version: link:../tailwind
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
       embla-carousel-react:
         specifier: ^8.5.2
         version: 8.5.2(react@19.0.0)
       lucide-react:
-        specifier: 'catalog:'
-        version: 0.469.0(react@19.0.0)
+        specifier: ^0.477.0
+        version: 0.477.0(react@19.0.0)
       react:
         specifier: 'catalog:'
         version: 19.0.0
@@ -323,6 +332,12 @@ importers:
       react-hook-form:
         specifier: ^7.54.2
         version: 7.54.2(react@19.0.0)
+      tailwind-merge:
+        specifier: ^3.0.2
+        version: 3.0.2
+      tailwindcss-animate:
+        specifier: catalog:styling
+        version: 1.0.7(tailwindcss@4.0.9)
       zod:
         specifier: 'catalog:'
         version: 3.24.2
@@ -330,53 +345,9 @@ importers:
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript-config
-      '@types/react':
-        specifier: 'catalog:'
-        version: 19.0.10
-      '@types/react-dom':
-        specifier: 'catalog:'
-        version: 19.0.4(@types/react@19.0.10)
-      typescript:
-        specifier: 'catalog:'
-        version: 5.8.2
-
-  packages/supabase:
-    dependencies:
-      '@supabase/ssr':
-        specifier: ^0.5.2
-        version: 0.5.2(@supabase/supabase-js@2.49.1)
-      '@supabase/supabase-js':
-        specifier: ^2.49.1
-        version: 2.49.1
-    devDependencies:
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../../tooling/typescript-config
-      typescript:
-        specifier: 'catalog:'
-        version: 5.8.2
-
-  packages/tailwind:
-    dependencies:
-      autoprefixer:
-        specifier: ^10.4.20
-        version: 10.4.20(postcss@8.5.3)
-      clsx:
-        specifier: ^2.1.1
-        version: 2.1.1
-      tailwind-merge:
-        specifier: ^3.0.2
-        version: 3.0.2
-      tailwindcss:
-        specifier: 'catalog:'
+      '@tailwindcss/postcss':
+        specifier: catalog:styling
         version: 4.0.9
-      tailwindcss-animate:
-        specifier: 'catalog:'
-        version: 1.0.7(tailwindcss@4.0.9)
-    devDependencies:
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../../tooling/typescript-config
       '@types/node':
         specifier: 'catalog:'
         version: 22.13.8
@@ -386,33 +357,11 @@ importers:
       '@types/react-dom':
         specifier: 'catalog:'
         version: 19.0.4(@types/react@19.0.10)
+      tailwindcss:
+        specifier: catalog:styling
+        version: 4.0.9
       typescript:
-        specifier: 'catalog:'
-        version: 5.8.2
-
-  packages/ui:
-    dependencies:
-      '@repo/shadcn':
-        specifier: workspace:*
-        version: link:../shadcn
-      react:
-        specifier: 'catalog:'
-        version: 19.0.0
-    devDependencies:
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../../tooling/typescript-config
-      '@types/node':
-        specifier: 'catalog:'
-        version: 22.13.8
-      '@types/react':
-        specifier: 'catalog:'
-        version: 19.0.10
-      '@types/react-dom':
-        specifier: 'catalog:'
-        version: 19.0.4(@types/react@19.0.10)
-      typescript:
-        specifier: 'catalog:'
+        specifier: catalog:tooling
         version: 5.8.2
 
   tooling/typescript-config: {}
@@ -421,6 +370,10 @@ packages:
 
   '@adobe/css-tools@4.4.0':
     resolution: {integrity: sha512-Ff9+ksdQQB3rMncgqDK78uLznstjyfIf2Arnh22pW8kBpLs6rpKDwgnZT46hin5Hl1WzazzK64DOrhSwYpS7bQ==}
+
+  '@alloc/quick-lru@5.2.0':
+    resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
+    engines: {node: '>=10'}
 
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
@@ -1277,11 +1230,11 @@ packages:
   '@expressive-code/plugin-text-markers@0.40.1':
     resolution: {integrity: sha512-LsirF7M4F2yWgrFXEocD74F/MaVXsOsHVsRxBLhXQJemSSkWkDp/EZPt//OaqQ8ExnqWZ2lH7E1/KiN46unKjg==}
 
-  '@floating-ui/core@1.6.8':
-    resolution: {integrity: sha512-7XJ9cPU+yI2QeLS+FCSlqNFZJq8arvswefkZrYI1yQBbftw6FyrZOxYSh+9S7z7TpeWlRt9zJ5IhM1WIL334jA==}
+  '@floating-ui/core@1.6.9':
+    resolution: {integrity: sha512-uMXCuQ3BItDUbAMhIXw7UPXRfAlOAvZzdK9BWpE60MCn+Svt3aLn9jsPTi/WNGlRUu2uI0v5S7JiIUsbsvh3fw==}
 
-  '@floating-ui/dom@1.6.11':
-    resolution: {integrity: sha512-qkMCxSR24v2vGkhYDo/UzxfJN3D4syqSjyuTFz6C7XcpU1pASPRieNI0Kj5VP3/503mOfYiGY891ugBX1GlABQ==}
+  '@floating-ui/dom@1.6.13':
+    resolution: {integrity: sha512-umqzocjDgNRGTuO7Q8CU32dkHkECqI8ZdMZ5Swb6QAM0t5rnlrN3lGo1hdpscRd3WS8T6DKYK4ephgIH9iRh3w==}
 
   '@floating-ui/react-dom@2.1.2':
     resolution: {integrity: sha512-06okr5cgPzMNBy+Ycse2A6udMi4bqwW/zgBF/rwjcNqWkyr82Mcg8b0vjX8OJpZFy/FKjJmw6wV7t44kK6kW7A==}
@@ -1289,8 +1242,8 @@ packages:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
 
-  '@floating-ui/utils@0.2.8':
-    resolution: {integrity: sha512-kym7SodPp8/wloecOpcmSnWJsK7M0E5Wg8UcFA+uO4B9s5d0ywXOEro/8HM9x0rW+TljRzul/14UYz3TleT3ig==}
+  '@floating-ui/utils@0.2.9':
+    resolution: {integrity: sha512-MDWhGtE+eHw5JW7lq4qhc5yRLS11ERl1c7Z6Xd0a58DozHES6EnNNwUWbMiG4J9Cgj053Bhk8zvlhFYKVhULwg==}
 
   '@hookform/resolvers@4.1.2':
     resolution: {integrity: sha512-wl6H9c9wLOZMJAqGLEVKzbCkxJuV+BYuLFZFCQtCwMe0b3qQk4kUBd/ZAj13SwcSqcx86rCgSCyngQfmA6DOWg==}
@@ -2540,6 +2493,9 @@ packages:
   '@tailwindcss/oxide@4.0.9':
     resolution: {integrity: sha512-eLizHmXFqHswJONwfqi/WZjtmWZpIalpvMlNhTM99/bkHtUs6IqgI1XQ0/W5eO2HiRQcIlXUogI2ycvKhVLNcA==}
     engines: {node: '>= 10'}
+
+  '@tailwindcss/postcss@4.0.9':
+    resolution: {integrity: sha512-BT/E+pdMqulavEAVM5NCpxmGEwHiLDPpkmg/c/X25ZBW+izTe+aZ+v1gf/HXTrihRoCxrUp5U4YyHsBTzspQKQ==}
 
   '@tailwindcss/vite@4.0.9':
     resolution: {integrity: sha512-BIKJO+hwdIsN7V6I7SziMZIVHWWMsV/uCQKYEbeiGRDRld+TkqyRRl9+dQ0MCXbhcVr+D9T/qX2E84kT7V281g==}
@@ -4255,6 +4211,11 @@ packages:
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
+  lucide-react@0.477.0:
+    resolution: {integrity: sha512-yCf7aYxerFZAbd8jHJxjwe1j7jEMPptjnaOqdYeirFnEy85cNR3/L+o0I875CYFYya+eEVzZSbNuRk8BZPDpVw==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
   lz-string@1.5.0:
     resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
     hasBin: true
@@ -5868,9 +5829,6 @@ packages:
       typescript: ^4.9.4 || ^5.0.2
       zod: ^3
 
-  zod@3.24.1:
-    resolution: {integrity: sha512-muH7gBL9sI1nciMZV67X5fTKKBLtwpZ5VBp1vsOQzj1MhrBZ4wlVCm3gedKZWLp0Oyel8sIGfeiz54Su+OVT+A==}
-
   zod@3.24.2:
     resolution: {integrity: sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ==}
 
@@ -5880,6 +5838,8 @@ packages:
 snapshots:
 
   '@adobe/css-tools@4.4.0': {}
+
+  '@alloc/quick-lru@5.2.0': {}
 
   '@ampproject/remapping@2.3.0':
     dependencies:
@@ -5968,7 +5928,7 @@ snapshots:
     dependencies:
       sitemap: 8.0.0
       stream-replace-string: 2.0.0
-      zod: 3.24.1
+      zod: 3.24.2
 
   '@astrojs/starlight@0.32.2(astro@5.4.1(@types/node@22.13.8)(db0@0.2.1)(ioredis@5.4.2)(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.6)(terser@5.37.0)(tsx@4.19.2)(typescript@5.8.2)(yaml@2.5.1))':
     dependencies:
@@ -6602,22 +6562,22 @@ snapshots:
     dependencies:
       '@expressive-code/core': 0.40.1
 
-  '@floating-ui/core@1.6.8':
+  '@floating-ui/core@1.6.9':
     dependencies:
-      '@floating-ui/utils': 0.2.8
+      '@floating-ui/utils': 0.2.9
 
-  '@floating-ui/dom@1.6.11':
+  '@floating-ui/dom@1.6.13':
     dependencies:
-      '@floating-ui/core': 1.6.8
-      '@floating-ui/utils': 0.2.8
+      '@floating-ui/core': 1.6.9
+      '@floating-ui/utils': 0.2.9
 
   '@floating-ui/react-dom@2.1.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@floating-ui/dom': 1.6.11
+      '@floating-ui/dom': 1.6.13
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
 
-  '@floating-ui/utils@0.2.8': {}
+  '@floating-ui/utils@0.2.9': {}
 
   '@hookform/resolvers@4.1.2(react-hook-form@7.54.2(react@19.0.0))':
     dependencies:
@@ -7877,6 +7837,15 @@ snapshots:
       '@tailwindcss/oxide-win32-arm64-msvc': 4.0.9
       '@tailwindcss/oxide-win32-x64-msvc': 4.0.9
 
+  '@tailwindcss/postcss@4.0.9':
+    dependencies:
+      '@alloc/quick-lru': 5.2.0
+      '@tailwindcss/node': 4.0.9
+      '@tailwindcss/oxide': 4.0.9
+      lightningcss: 1.29.1
+      postcss: 8.5.3
+      tailwindcss: 4.0.9
+
   '@tailwindcss/vite@4.0.9(vite@6.2.0(@types/node@22.13.8)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.37.0)(tsx@4.19.2)(yaml@2.5.1))':
     dependencies:
       '@tailwindcss/node': 4.0.9
@@ -8407,7 +8376,7 @@ snapshots:
       '@tanstack/virtual-file-routes': 1.99.0
       prettier: 3.5.2
       tsx: 4.19.2
-      zod: 3.24.1
+      zod: 3.24.2
     optionalDependencies:
       '@tanstack/react-router': 1.112.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
 
@@ -8429,7 +8398,7 @@ snapshots:
       babel-dead-code-elimination: 1.0.9
       chokidar: 3.6.0
       unplugin: 2.1.2
-      zod: 3.24.1
+      zod: 3.24.2
     optionalDependencies:
       '@tanstack/react-router': 1.112.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       vite: 6.2.0(@types/node@22.13.8)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.37.0)(tsx@4.19.2)(yaml@2.5.1)
@@ -8487,7 +8456,7 @@ snapshots:
       react-dom: 19.0.0(react@19.0.0)
       vinxi: 0.5.3(@types/node@22.13.8)(db0@0.2.1)(ioredis@5.4.2)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.37.0)(tsx@4.19.2)(typescript@5.8.2)(yaml@2.5.1)
       vite: 6.2.0(@types/node@22.13.8)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.37.0)(tsx@4.19.2)(yaml@2.5.1)
-      zod: 3.24.1
+      zod: 3.24.2
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -8989,9 +8958,9 @@ snapshots:
       xxhash-wasm: 1.1.0
       yargs-parser: 21.1.1
       yocto-spinner: 0.2.0
-      zod: 3.24.1
-      zod-to-json-schema: 3.24.1(zod@3.24.1)
-      zod-to-ts: 1.2.0(typescript@5.8.2)(zod@3.24.1)
+      zod: 3.24.2
+      zod-to-json-schema: 3.24.1(zod@3.24.2)
+      zod-to-ts: 1.2.0(typescript@5.8.2)(zod@3.24.2)
     optionalDependencies:
       sharp: 0.33.5
     transitivePeerDependencies:
@@ -10401,6 +10370,10 @@ snapshots:
       yallist: 3.1.1
 
   lucide-react@0.469.0(react@19.0.0):
+    dependencies:
+      react: 19.0.0
+
+  lucide-react@0.477.0(react@19.0.0):
     dependencies:
       react: 19.0.0
 
@@ -12291,7 +12264,7 @@ snapshots:
       unenv: 1.10.0
       unstorage: 1.14.4(db0@0.2.1)(ioredis@5.4.2)
       vite: 6.2.0(@types/node@22.13.8)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.37.0)(tsx@4.19.2)(yaml@2.5.1)
-      zod: 3.24.1
+      zod: 3.24.2
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -12483,16 +12456,14 @@ snapshots:
       compress-commons: 6.0.2
       readable-stream: 4.6.0
 
-  zod-to-json-schema@3.24.1(zod@3.24.1):
+  zod-to-json-schema@3.24.1(zod@3.24.2):
     dependencies:
-      zod: 3.24.1
+      zod: 3.24.2
 
-  zod-to-ts@1.2.0(typescript@5.8.2)(zod@3.24.1):
+  zod-to-ts@1.2.0(typescript@5.8.2)(zod@3.24.2):
     dependencies:
       typescript: 5.8.2
-      zod: 3.24.1
-
-  zod@3.24.1: {}
+      zod: 3.24.2
 
   zod@3.24.2: {}
 

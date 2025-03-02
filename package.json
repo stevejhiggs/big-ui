@@ -14,7 +14,7 @@
     "@biomejs/biome": "^1.9.4",
     "prettier": "^3.5.2",
     "turbo": "^2.4.4",
-    "typescript": "catalog:"
+    "typescript": "catalog:tooling"
   },
   "packageManager": "pnpm@10.5.2",
   "engines": {

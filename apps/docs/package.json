@@ -11,8 +11,8 @@
     "lint": "biome check ."
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.31.1",
-    "astro": "^5.2.5",
+    "@astrojs/starlight": "^0.32.2",
+    "astro": "^5.4.1",
     "sharp": "^0.33.5"
   }
 }

@@ -8,7 +8,6 @@ import { type User, getUser } from '@repo/auth';
 import { TooltipProvider } from '@repo/shadcn';
 
 import globalCss from '@/styles/globals.css?url';
-import tailwindCss from '@repo/tailwind/styles/globals.css?url';
 
 const TanStackRouterDevtools =
   process.env.NODE_ENV === 'production'
@@ -38,10 +37,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient; user
         title: 'TanStack Start Starter',
       },
     ],
-    links: [
-      { rel: 'stylesheet', href: tailwindCss },
-      { rel: 'stylesheet', href: globalCss },
-    ],
+    links: [{ rel: 'stylesheet', href: globalCss }],
   }),
   beforeLoad: async () => {
     const user = await fetchUser();

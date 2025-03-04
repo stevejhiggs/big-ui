@@ -1,6 +1,6 @@
 import { logout } from '@repo/auth';
 import { createFileRoute, redirect } from '@tanstack/react-router';
-import { createServerFn } from '@tanstack/start';
+import { createServerFn } from '@tanstack/react-start';
 
 const logoutFn = createServerFn().handler(async () => {
   const error = await logout();

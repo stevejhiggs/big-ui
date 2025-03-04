@@ -1,7 +1,7 @@
 import type { QueryClient } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { Outlet, ScrollRestoration, createRootRouteWithContext } from '@tanstack/react-router';
-import { Meta, Scripts, createServerFn } from '@tanstack/start';
+import { Outlet, createRootRouteWithContext } from '@tanstack/react-router';
+import { Meta, Scripts, createServerFn } from '@tanstack/react-start';
 import { type ReactNode, Suspense, lazy } from 'react';
 
 import { type User, getUser } from '@repo/auth';
@@ -20,7 +20,8 @@ const TanStackRouterDevtools =
       );
 
 const fetchUser = createServerFn({ method: 'GET' }).handler(async () => {
-  return getUser();
+  const user = await getUser();
+  return user;
 });
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient; user?: User }>()({
@@ -67,7 +68,6 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
       </head>
       <body>
         {children}
-        <ScrollRestoration />
         <ReactQueryDevtools buttonPosition="bottom-left" />
         <Suspense>
           <TanStackRouterDevtools position="bottom-right" />

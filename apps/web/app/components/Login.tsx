@@ -2,7 +2,7 @@ import { login } from '@repo/auth';
 import { AuthForm, type AuthFormValues } from '@repo/auth/components';
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from '@tanstack/react-router';
-import { createServerFn } from '@tanstack/start';
+import { createServerFn } from '@tanstack/react-start';
 
 export const loginFn = createServerFn()
   .validator((d) => d as { email: string; password: string })

@@ -4,6 +4,7 @@ import { routerWithQueryClient } from '@tanstack/react-router-with-query';
 
 import { DefaultCatchBoundary } from '@/components/DefaultCatchBoundary';
 import { NotFound } from '@/components/NotFound';
+
 import { routeTree } from './routeTree.gen';
 
 export function createRouter() {
@@ -15,7 +16,7 @@ export function createRouter() {
       context: { queryClient },
       defaultPreload: 'intent',
       defaultErrorComponent: DefaultCatchBoundary,
-      defaultNotFoundComponent: NotFound,
+      defaultNotFoundComponent: () => <NotFound />,
     }),
     queryClient,
   );

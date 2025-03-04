@@ -2,7 +2,7 @@ import { signup } from '@repo/auth';
 import { AuthForm, type AuthFormValues } from '@repo/auth/components';
 import { useMutation } from '@tanstack/react-query';
 import { createFileRoute, redirect } from '@tanstack/react-router';
-import { createServerFn, useServerFn } from '@tanstack/start';
+import { createServerFn, useServerFn } from '@tanstack/react-start';
 
 export const signupFn = createServerFn()
   .validator((d: unknown) => d as { email: string; password: string; redirectUrl?: string })

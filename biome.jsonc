@@ -4,7 +4,7 @@
     "enabled": true
   },
   "files": {
-    "ignore": ["node_modules/*", "*.config.*", "*.json", "tsconfig.json", ".turbo", ".next/*", ".astro/*", "dist/*"]
+    "ignore": ["node_modules/*", "*.config.*", "*.json", "tsconfig.json", ".turbo", ".next/*", ".astro/*", "dist/*", "**/routeTree.gen.ts"]
   },
   "linter": {
     "enabled": true,
@@ -54,10 +54,6 @@
       "style": {
         "noNegationElse": "off",
         "useBlockStatements": "off",
-        "useFilenamingConvention": {
-          "level": "error",
-          "options": { "requireAscii": true, "filenameCases": ["kebab-case"] }
-        },
         "useForOf": "error",
         "useNodejsImportProtocol": "error",
         "useNumberNamespace": "error"

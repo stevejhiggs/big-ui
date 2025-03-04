@@ -1,39 +1,39 @@
 {
   "name": "storybook",
-  "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "",
+  "main": "index.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "storybook dev -p 6006",
-    "build": "storybook build",
-    "clean": "rm -rf .turbo node_modules",
-    "lint": "biome check .",
-    "typecheck": "tsc --noEmit"
+    "build-storybook": "storybook build",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check ."
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "@repo/ui": "workspace:*",
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8.5.3",
-    "react": "catalog:",
-    "react-dom": "catalog:",
-    "tailwindcss": "catalog:styling",
-    "tailwindcss-animate": "catalog:styling"
+    "@repo/typescript-config": "workspace:*",
+    "@repo/ui": "workspace:*"
   },
   "devDependencies": {
-    "@repo/typescript-config": "workspace:*",
+    "@chromatic-com/storybook": "^3.2.5",
     "@storybook/addon-essentials": "^8.6.3",
-    "@storybook/addon-interactions": "^8.6.3",
-    "@storybook/addon-links": "^8.6.3",
-    "@storybook/addon-themes": "^8.6.3",
     "@storybook/blocks": "^8.6.3",
     "@storybook/react": "^8.6.3",
     "@storybook/react-vite": "^8.6.3",
     "@storybook/test": "^8.6.3",
+    "@tailwindcss/vite": "catalog:styling",
+    "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
-    "@vitejs/plugin-react": "^4.3.4",
+    "@vitejs/plugin-react-swc": "catalog:tooling",
+    "react-docgen-typescript": "^2.2.2",
     "storybook": "^8.6.3",
-    "typescript": "catalog:tooling",
-    "vite": "^6.2.0"
+    "tailwindcss": "catalog:styling",
+    "vite": "catalog:tooling",
+    "vite-tsconfig-paths": "catalog:tooling"
   }
 }

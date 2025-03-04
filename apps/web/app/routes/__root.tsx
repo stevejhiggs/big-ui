@@ -1,8 +1,8 @@
 import type { QueryClient } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { Outlet, createRootRouteWithContext } from '@tanstack/react-router';
-import { Meta, Scripts, createServerFn } from '@tanstack/react-start';
-import { type ReactNode, Suspense, lazy } from 'react';
+import { HeadContent, Outlet, Scripts, createRootRouteWithContext } from '@tanstack/react-router';
+import { createServerFn } from '@tanstack/react-start';
+import { type ReactNode, lazy } from 'react';
 
 import { type User, getUser } from '@repo/auth';
 import { TooltipProvider } from '@repo/ui/components/base/tooltip';
@@ -64,14 +64,12 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en-US">
       <head>
-        <Meta />
+        <HeadContent />
       </head>
       <body>
         {children}
         <ReactQueryDevtools buttonPosition="bottom-left" />
-        <Suspense>
-          <TanStackRouterDevtools position="bottom-right" />
-        </Suspense>
+        <TanStackRouterDevtools position="bottom-right" />
         <Scripts />
       </body>
     </html>
